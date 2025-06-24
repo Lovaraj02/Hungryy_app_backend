@@ -34,6 +34,6 @@ mongoose.connect(process.env.Mongo_uri)
 app.listen(PORT,()=>{
     console.log("server started at",PORT)
 })
-app.use('/home',(req,res)=>{
-    res.send("h1> welcome to suby")
+app.use('/',(req,res)=>{
+    res.send("h1> welcome to Food Delivery")
 })
