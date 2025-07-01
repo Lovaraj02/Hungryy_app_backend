@@ -9,7 +9,7 @@ const  vendorRigistration = async (req,res)=>{
         const {username, email, password} = req.body
         const vendorEmail = await Vendor.findOne({email})
         if(vendorEmail){
-            return res.status(201).json({message:"Email alreadt taken"})
+            return res.status(201).json({message:"Email already taken"})
         }
         const hashedPassword = await bcrypt.hash(password,12)
 
@@ -39,8 +39,8 @@ const vendorLogin = async (req,res)=>{
             return res.status(401).json({message:"invalid Email or Password"})
         }
         const token = jwt.sign({vendorId: vendor._id},secretKey,{expiresIn:'1h'})
-        res.status(201).json({message:"login successfull"})
         console.log(email,token)
+        res.status(201).json({message:"login successfull",token})
         
     } catch (error) {
         console.log("error is",error)

@@ -17,9 +17,10 @@ const addFirm = async (req,res)=>{
         }
         const firm = new Firm({firmName,area,category,region,offer,image, vendor:vendor.id})
         const savedFirm = await firm.save()
+        const firmId = savedFirm._id;
         vendor.firm.push(savedFirm)
         await vendor.save()
-        res.status(201).json({mess:"firm added successfully"})
+        res.status(201).json({mess:"firm added successfully",firmId})
     } 
 
 

@@ -18,8 +18,10 @@ const vendorSchema = new mongoose.Schema({
             ref:'Firm'
         }
     ]
-});
-
+},
 {timestamps:true}
+);
+
+
 
 module.exports = mongoose.model('Vendor',vendorSchema)
