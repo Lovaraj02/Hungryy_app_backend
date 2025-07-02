@@ -19,17 +19,3 @@ route.delete('/:productId',productController.deletedProductById)
 module.exports = route
 
 
-
-
-// const express = require("express");
-// const route = express.Router();
-// const productController = require('../controllers/productController');
-
-// route.post('/add-product/:firmId', productController.addProduct);
-// route.get('/:firmId/products', productController.getProductByFirmId);
-// route.delete('/:productId', productController.deletedProductById);
-
-// module.exports = route;
-
-
-

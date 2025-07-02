@@ -17,13 +17,3 @@ router.delete('/:firmId',firmController.deleteFirmById)
 module.exports = router
 
 
-
-// const express = require("express");
-// const router = express.Router();
-// const { verifyToken } = require("../middlewares/verifyToken");
-// const firmController = require("../controllers/firmController");
-
-// router.post('/add-firm', verifyToken, firmController.addFirm);
-// router.delete('/:firmId', firmController.deleteFirmById);
-
-// module.exports = router;
