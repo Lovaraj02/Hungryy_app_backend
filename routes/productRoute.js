@@ -8,11 +8,11 @@ const route = express.Router()
 route.post('/add-product/:firmId',productController.addProduct);
 route.get('/:firmId/products',productController.getProductByFirmId)
 
-// route.get('/uploads/:imageName', (req, res) => {
-//   const imageName = req.params.imageName;
-//   res.setHeader('Content-Type', 'image/jpeg');
-//   res.sendFile(path.join(__dirname, '..', 'uploads', imageName));
-// });
+route.get('/uploads/:imageName', (req, res) => {
+  const imageName = req.params.imageName;
+  res.headersSent('Content-Type', 'image/jpeg');
+  res.sendFile(path.join(__dirname, '..', 'uploads', imageName));
+});
 
 route.delete('/:productId',productController.deletedProductById)
 

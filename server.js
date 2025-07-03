@@ -15,7 +15,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // Static folder to serve uploaded images
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use('/uploads', express.static('uploads'));
 
 // Routes
 app.use('/vendor', vendorRoute);
@@ -32,8 +32,8 @@ mongoose.connect(process.env.Mongo_uri)
 app.listen(PORT, () => {
     console.log("server started at", PORT);
 });
-app.get('/', (req, res) => {
-    res.send("<h1>Welcome to Food Delivery</h1>");
+app.use('/', (req, res) => {
+    res.send("<h1>Welcome to Hungryy</h1>");
 });
 
 

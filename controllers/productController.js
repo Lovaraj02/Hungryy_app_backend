@@ -3,13 +3,16 @@ const Firm = require("../models/Firm")
 const multer = require("multer")
 const firmController = require("./firmController")
 //image
+const path = require("path")
 const storage = multer.diskStorage({
     destination:(req,file,cb)=>{
-        cb(null,'uploads/')
+      cb(null,'uploads/')
     },
-    filename:(req,file,cb)=>{cb(null,Date.now() + '_' + file.originalname)}
+    filename:(req,file,cb)=>{
+      cb(null,Date.now() + path.extname(file.originalname))
+    }
 })
-const upload = multer({storage:storage})
+const upload = multer({storage})
 
 const addProduct = async (req,res)=>{
     try {
