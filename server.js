@@ -21,7 +21,10 @@ app.use('/uploads', express.static('uploads'));
 app.use('/vendor', vendorRoute);
 app.use('/firm', firmRoute);
 app.use('/products', productRoute);
-
+app.use('/', (req, res) => {
+    res.send("<h1>Welcome to Hungryy</h1>");
+});
+ 
 // MongoDb connection
 dotenv.config();
 mongoose.connect(process.env.Mongo_uri)
@@ -31,9 +34,6 @@ mongoose.connect(process.env.Mongo_uri)
 // Server
 app.listen(PORT, () => {
     console.log("server started at", PORT);
-});
-app.use('/', (req, res) => {
-    res.send("<h1>Welcome to Hungryy</h1>");
 });
 
 
